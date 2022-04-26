@@ -42,12 +42,12 @@ public class RewriteFilter extends AbstractGatewayFilterFactory<RewriteFilter.Co
 
 
 
-            log.info("===============================================================");
+            log.info("===============================================================================================");
             log.info("==== Rewrite... ====");
             log.info("URI: " + exchange.getRequest().getURI().toString());
             log.info("Path: " + path);
             log.info("Re-Write-Path: " + rewritePath);
-            log.info("===============================================================");
+            log.info("===============================================================================================");
 
 
             //If you want to build a "pre" filter you need to manipulate the
