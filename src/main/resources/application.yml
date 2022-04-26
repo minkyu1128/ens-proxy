@@ -6,12 +6,30 @@ spring:
   cloud:
     gateway:
       routes:
+        # path Rewrite API..
         - id: kko-mydoc-api
           uri: ${route_uri:http://localhost:18090}
           predicates:
             - Path=/v1/tokens,/v1/documents/status
           filters:
-            - RewriteFilter
+            - name: RewriteFilter
+              args:
+#                listMapExample:
+#                  - name: local
+#                    ip: 127.0.0.1
+#                  - name: prod
+#                    ip: 211.0.0.1
+                mConf:
+                    /v1/tokens:
+                      rewrite_path: /v1/{X-Xit-DBUuid}/tokens/{X-Xit-Ott}
+                      params:
+                        - X-Xit-DBUuid
+                        - X-Xit-Ott
+                    /v1/documents/status:
+                      rewrite_path: /v1/documents/{X-Xit-DBUuid}/status
+                      params:
+                        - X-Xit-DBUuid
+        # By Pass API...
         - id: all
           uri: ${route_uri:http://localhost:18090}
           predicates:
@@ -34,9 +52,6 @@ logging:
     file: utf-8
   level:
     root: info
-    '[org.springframework.orm.jpa]': debug
-    '[org.springframework.transaction]': debug
-    '[org.springframework.transaction.interceptor]': trace
   #    '[org.hibernate.sql]': info
   exception-conversion-word: '%wEx'
   pattern:

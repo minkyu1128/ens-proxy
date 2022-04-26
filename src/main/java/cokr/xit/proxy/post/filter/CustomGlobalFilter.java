@@ -13,16 +13,13 @@ import java.util.List;
 public class CustomGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        List<String> param1 = exchange.getRequest().getHeaders().get("XIT-PARAM1");
-        String param2 = String.valueOf(exchange.getRequest().getHeaders().get("XIT-PARAM2"));
         String uri = exchange.getRequest().getURI().toString();
 
-
-        log.info("===============================================================");
-//        log.info("param1: " + param1==null?"null":param1.toString());
-        log.info("param2: " + param2);
+        log.info("===============================================================================================");
+        log.info("===== Request Info... =====");
+        log.info("Header: " + exchange.getRequest().getHeaders());
         log.info("URI: " + uri);
-        log.info("===============================================================");
+        log.info("===============================================================================================");
 
 //        GatewayFilter f = exchange.getApplicationContext().getBean(RewritePathGatewayFilterFactory.class)
 //                .apply(c -> c.setRegexp(uri).setReplacement(uri+"/"+param1.get(0)));
