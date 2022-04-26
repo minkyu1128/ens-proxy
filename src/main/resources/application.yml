@@ -1,14 +1,52 @@
+server:
+  port: ${port:8080}
+
+
 spring:
   cloud:
     gateway:
       routes:
         - id: kko-mydoc-api
-          uri: http://localhost:18090
+          uri: ${route_uri:http://localhost:18090}
           predicates:
             - Path=/kko/mydoc/**
           filters:
             - RewriteFilter
         - id: all
-          uri: http://localhost:18090
+          uri: ${route_uri:http://localhost:18090}
           predicates:
             - Path=/**
+
+  # ===================================================================================================================================
+  # PID 설정
+  # ===================================================================================================================================
+  pid:
+    file: proxyens.pid
+
+
+
+# ===================================================================================================================================
+# Logging 설정
+# ===================================================================================================================================
+logging:
+  charset:
+    console: utf-8
+    file: utf-8
+  level:
+    root: info
+    '[org.springframework.orm.jpa]': debug
+    '[org.springframework.transaction]': debug
+    '[org.springframework.transaction.interceptor]': trace
+  #    '[org.hibernate.sql]': info
+  exception-conversion-word: '%wEx'
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(${LOG_LEVEL_PATTERN:-%5p}){green} %clr([%18thread]){magenta} %clr(%-40.40logger{39}%line){cyan} %clr(: %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}){faint}'
+  file:
+    name: ./logs/logback.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
+      #보관일수
+      max-history: 30
+      #용량제한
+      max-file-size: 100MB
