@@ -1,4 +1,4 @@
-package cokr.xit.proxy.proxypost.filter;
+package cokr.xit.proxy.post.filter;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;

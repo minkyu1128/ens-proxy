@@ -1,8 +1,8 @@
-package cokr.xit.proxy.proxypost.api.support;
+package cokr.xit.proxy.post.api.support;
 
 
 import KISINFO.VNO.VNOInterop;
-import cokr.xit.proxy.proxypost.core.model.ResponseVO;
+import cokr.xit.proxy.post.core.model.ResponseVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

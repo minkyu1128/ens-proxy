@@ -1,4 +1,4 @@
-package cokr.xit.proxy.proxypost.core.model;
+package cokr.xit.proxy.post.core.model;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package cokr.xit.proxy.proxypost.api.presentation;
+package cokr.xit.proxy.post.api.presentation;
 
-import cokr.xit.proxy.proxypost.api.support.Interop;
-import cokr.xit.proxy.proxypost.core.model.ResponseVO;
+import cokr.xit.proxy.post.api.support.Interop;
+import cokr.xit.proxy.post.core.model.ResponseVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
