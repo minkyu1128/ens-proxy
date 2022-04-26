@@ -1,5 +1,6 @@
 package cokr.xit.proxy.post.filter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -8,6 +9,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
+@Slf4j
 public class CustomGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -16,12 +18,11 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         String uri = exchange.getRequest().getURI().toString();
 
 
-        System.out.println("===============================================================");
-        System.out.println("param1: " + param1.toString());
-        System.out.println("param2: " + param2);
-        System.out.println("URI: " + uri);
-        System.out.println("TransformUrl: " + exchange.transformUrl("/kko/bill/url"));
-        System.out.println("===============================================================");
+        log.info("===============================================================");
+//        log.info("param1: " + param1==null?"null":param1.toString());
+        log.info("param2: " + param2);
+        log.info("URI: " + uri);
+        log.info("===============================================================");
 
 //        GatewayFilter f = exchange.getApplicationContext().getBean(RewritePathGatewayFilterFactory.class)
 //                .apply(c -> c.setRegexp(uri).setReplacement(uri+"/"+param1.get(0)));

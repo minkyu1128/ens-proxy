@@ -1,8 +1,10 @@
 package cokr.xit.proxy.post;
 
+import cokr.xit.proxy.post.filter.CustomGlobalFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.ApplicationPidFileWriter;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class ProxyPostApplication {
@@ -17,9 +19,9 @@ public class ProxyPostApplication {
     }
 
 
-//    @Bean
-//    public GlobalCustomFilter customFilter() {
-//        return new GlobalCustomFilter();
-//    }
+    @Bean
+    public CustomGlobalFilter customFilter() {
+        return new CustomGlobalFilter();
+    }
 
 }

@@ -9,7 +9,7 @@ spring:
         - id: kko-mydoc-api
           uri: ${route_uri:http://localhost:18090}
           predicates:
-            - Path=/kko/mydoc/**
+            - Path=/v1/tokens,/v1/documents/status
           filters:
             - RewriteFilter
         - id: all
