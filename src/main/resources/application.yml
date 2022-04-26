@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: kko-mydoc-api
+          uri: http://localhost:18090
+          predicates:
+            - Path=/kko/mydoc/**
+          filters:
+            - RewriteFilter
+        - id: all
+          uri: http://localhost:18090
+          predicates:
+            - Path=/**
