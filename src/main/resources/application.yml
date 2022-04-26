@@ -10,7 +10,7 @@ spring:
         - id: kko-mydoc-api
           uri: ${route_uri:http://localhost:18090}
           predicates:
-            - Path=/v1/tokens,/v1/documents/status
+            - Path=/v1/tokens,/v1/documents/status,/v1/documents/change
           filters:
             - name: RewriteFilter
               args:
@@ -27,6 +27,10 @@ spring:
                         - X-Xit-Ott
                     /v1/documents/status:
                       rewrite_path: /v1/documents/{X-Xit-DBUuid}/status
+                      params:
+                        - X-Xit-DBUuid
+                    /v1/documents/change:
+                      rewrite_path: /v1/documents/{X-Xit-DBUuid}
                       params:
                         - X-Xit-DBUuid
         # By Pass API...
