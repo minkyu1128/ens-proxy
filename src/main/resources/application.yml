@@ -61,7 +61,7 @@ logging:
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(${LOG_LEVEL_PATTERN:-%5p}){green} %clr([%18thread]){magenta} %clr(%-40.40logger{39}%line){cyan} %clr(: %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}){faint}'
   file:
-    name: ./logs/logback.log
+    name: ../logs/logback.log
   logback:
     rollingpolicy:
       file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
