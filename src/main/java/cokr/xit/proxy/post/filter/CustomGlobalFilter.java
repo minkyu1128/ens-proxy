@@ -16,7 +16,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         String uri = exchange.getRequest().getURI().toString();
 
         log.info("===============================================================================================");
-        log.info("===== Request Info... =====");
+        log.info("===== Proxy Request Info... =====");
         log.info("Header: " + exchange.getRequest().getHeaders());
         log.info("URI: " + uri);
         log.info("===============================================================================================");
