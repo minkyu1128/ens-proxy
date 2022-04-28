@@ -31,7 +31,10 @@ public class Interop {
             // 인증요청처리
             iRtnCI = vnoInterop.fnRequestConnInfo(sSiteCode, sSitePw, sJumin, sFlag);
             log.info("=======================================================================");
+            log.info("siteCode=" + sSiteCode);
+            log.info("sitePw=" + sSitePw);
             log.info("JID=" + sJumin);
+            log.info("flag=" + sFlag);
             log.info("iRtnCI=" + iRtnCI);
 
             // 인증결과코드에 따른 처리
